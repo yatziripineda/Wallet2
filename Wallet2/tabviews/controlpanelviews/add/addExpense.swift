@@ -310,7 +310,6 @@ struct addExpense: View {
                     
                 }
             }
-            Divider()
             ZStack{
                 Rectangle()
                     .foregroundColor(.blue)
