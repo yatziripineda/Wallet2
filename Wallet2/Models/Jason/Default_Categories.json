@@ -1,0 +1,68 @@
+
+[
+    {
+        "name": "Groceries",
+        "symbol": "carrot.fill",
+        "color": "red",
+        "principalCategory": false
+    },
+    {
+        "name": "Food & Drinks",
+        "symbol": "fork.knife",
+        "color": "red",
+        "principalCategory": true
+    },
+    {
+        "name": "Restaurant, fast-food",
+        "symbol": "cup.and.saucer",
+        "color": "red",
+        "principalCategory": false
+    },
+    
+    
+    
+    
+    {
+        "name": "Shopping",
+        "symbol": "cup.and.saucer",
+        "color": "blue",
+        "principalCategory": true
+    },
+    {
+        "name": "Clothes & shoes",
+        "symbol": "cup.and.saucer",
+        "color": "blue",
+        "principalCategory": false
+    },
+    {
+        "name": "Jewels, accessories",
+        "symbol": "cup.and.saucer",
+        "color": "blue",
+        "principalCategory": false
+    },
+    {
+        "name": "Health and beauty",
+        "symbol": "cup.and.saucer",
+        "color": "blue",
+        "principalCategory": false
+    },
+    
+    {
+        "name": "Housing",
+        "symbol": "cup.and.saucer",
+        "color": "yellow",
+        "principalCategory": true
+    },
+    {
+        "name": "Jewels, accessories",
+        "symbol": "cup.and.saucer",
+        "color": "yellow",
+        "principalCategory": false
+    },
+    {
+        "name": "Health and beauty",
+        "symbol": "cup.and.saucer",
+        "color": "yellow",
+        "principalCategory": false
+    },
+]

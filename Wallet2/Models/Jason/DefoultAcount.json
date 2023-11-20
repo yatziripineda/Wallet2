@@ -1,0 +1,20 @@
+
+[
+    {
+        "name": "BANORTE",
+        "currentBalance": 4000,
+        "currency": {
+            "name": "Euro",
+            "acronym": "EUR"
+        }
+    },
+    {
+        "name": "EURO CASH",
+        "currentBalance": 50000,
+        "currency": {
+            "name": "Peso",
+            "acronym": "EUR"
+        }
+    }
+    
+]

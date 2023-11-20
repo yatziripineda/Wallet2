@@ -1,0 +1,62 @@
+
+[
+    {
+        "tipeRecord": "CASH",
+        "amount": 2400,
+        "acount":{
+            "name" : "BANORTE",
+            "currentBalance" : 50000
+            
+        },
+        "category" :{
+            "name": "Food & Drinks",
+            "symbol": "fork.knife",
+            "color": "red",
+            "principalCategory": true
+        },
+        "date": "mondey",
+        "note": "Hola",
+        "warranty": 1
+        
+    },
+    {
+        "tipeRecord": "CASH1",
+        "amount": 2500,
+        "acount":{
+            "name" : "BBVA",
+            "currentBalance" : 60000
+            
+        },
+        "category" :{
+            "name": "Food & Drinks",
+            "symbol": "fork.knife",
+            "color": "red",
+            "principalCategory": true
+        },
+        "date": "mondey",
+        "note": "Hola",
+        "warranty": 1
+        
+    },
+    {
+        "tipeRecord": "CASH3",
+        "amount": 2600,
+        "acount":{
+            "name" : "SANTANDER",
+            "currentBalance" : 70000
+            
+        },
+        "category" :{
+            "name": "Food & Drinks",
+            "symbol": "fork.knife",
+            "color": "red",
+            "principalCategory": true
+        },
+        "date": "mondey",
+        "note": "Hola",
+        "warranty": 1
+        
+    },
+]
+
+

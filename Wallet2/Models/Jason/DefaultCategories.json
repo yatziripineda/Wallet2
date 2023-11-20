@@ -1,0 +1,21 @@
+
+[
+    {
+        "name": "Food & Drinks",
+        "symbol": "fork.knife",
+        "subcategory": 1,
+        "principalCategory": true
+    },
+    {
+        "name": "Restaurant, fast-food",
+        "symbol": "cup.and.saucer",
+        "subcategory": 1,
+        "principalCategory": false
+    },
+    {
+        "name": "Groceries",
+        "symbol": "carrot.fill",
+        "subcategory": 1,
+        "principalCategory": false
+    }
+]
