@@ -51,8 +51,8 @@ struct Add: View {
     @Query private var currency: [Currency]
     
     
-    @State var selectedAcount: Acount?
-    @State var selectedCategory: Category?
+//    @State var selectedAcount: Acount?
+//    @State var selectedCategory: Category?
 //    var item: Item = Item(tipeRecord: "", amount: 2, date: "", note: "", warranty: 0)
 //    
     
@@ -86,7 +86,10 @@ struct Add: View {
                     
                     
                     if(selectedSegment == 0){
-                        addExpense()
+                        ZStack{
+                            
+                            addExpense()
+                        }.background(Color.white)
                         
                     }else{
                         if(selectedSegment == 1){

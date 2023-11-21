@@ -30,6 +30,8 @@
 		78B21B432B054E310084233B /* DefaultItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 78B21B422B054E310084233B /* DefaultItems.json */; };
 		78C421952B077ABE003BD76B /* addExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C421942B077ABE003BD76B /* addExpense.swift */; };
 		78C61F6C2B0B591B00707CB9 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */; };
+		78C61F6E2B0C9FC800707CB9 /* ViewSelectAcount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */; };
+		78C61F702B0CA68C00707CB9 /* ObsVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6F2B0CA68C00707CB9 /* ObsVar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		78B21B422B054E310084233B /* DefaultItems.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultItems.json; sourceTree = "<group>"; };
 		78C421942B077ABE003BD76B /* addExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExpense.swift; sourceTree = "<group>"; };
 		78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
+		78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSelectAcount.swift; sourceTree = "<group>"; };
+		78C61F6F2B0CA68C00707CB9 /* ObsVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObsVar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 				78B21B102B0539D60084233B /* Assets.xcassets */,
 				78B21B122B0539D60084233B /* Wallet2.entitlements */,
 				78B21B132B0539D60084233B /* Preview Content */,
+				78C61F6F2B0CA68C00707CB9 /* ObsVar.swift */,
 			);
 			path = Wallet2;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			children = (
 				78C421942B077ABE003BD76B /* addExpense.swift */,
 				78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */,
+				78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */,
 			);
 			path = add;
 			sourceTree = "<group>";
@@ -253,6 +259,7 @@
 				78B21B352B053E320084233B /* Configuration.swift in Sources */,
 				78B21B312B053E0D0084233B /* AllRecords.swift in Sources */,
 				78C421952B077ABE003BD76B /* addExpense.swift in Sources */,
+				78C61F702B0CA68C00707CB9 /* ObsVar.swift in Sources */,
 				78B21B282B053D540084233B /* Planning.swift in Sources */,
 				78B21B1F2B053B120084233B /* Currency.swift in Sources */,
 				78B21B1D2B053AB40084233B /* Item.swift in Sources */,
@@ -264,6 +271,7 @@
 				78B21B0B2B0539D50084233B /* Wallet2App.swift in Sources */,
 				78B21B3F2B0541640084233B /* CategoriesJSONDecoder.swift in Sources */,
 				78B21B2D2B053DB90084233B /* Statistics.swift in Sources */,
+				78C61F6E2B0C9FC800707CB9 /* ViewSelectAcount.swift in Sources */,
 				78B21B332B053E230084233B /* bell.swift in Sources */,
 				78B21B232B053B890084233B /* Category.swift in Sources */,
 			);

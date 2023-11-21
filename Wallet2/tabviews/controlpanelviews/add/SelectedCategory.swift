@@ -24,72 +24,86 @@ struct SelectedCategory: View {
 //    @State var selectedCategory: Category?
     
     var body: some View {
-        //        NavigationStack{
-        List() {
-            Section(header: Text("ALL CATEGORIES")) {
-                ForEach (categories){ category in
-                    if (category.principalCategory){
-                       
-                        NavigationLink(
-                            destination: {
-                                NavigationStack{
-                                    List() {
-                                        
-                                        Section() {
-                                            HStack{
-                                                Image(systemName: category.symbol)
-                                                    .foregroundColor(.white)
-                                                    .frame(width: 40.0, height: 40.0)
-                                                    .background(Color.getMyColor(category.color))
-                                                    .cornerRadius(20)
-                                                Text("\(category.name)")
+        NavigationStack{
+            List() {
+                Section(header: Text("ALL CATEGORIES")) {
+                    ForEach (categories){ category in
+                        if (category.principalCategory){
+                            NavigationLink(
+                                destination: {
+                                    NavigationStack{
+                                        List() {
+                                            Section() {
+                                                HStack{
+                                                    Image(systemName: category.symbol)
+                                                        .foregroundColor(.white)
+                                                        .frame(width: 40.0, height: 40.0)
+                                                        .background(Color.getMyColor(category.color))
+                                                        .cornerRadius(20)
+                                                    Text("\(category.name)")
+                                                }
+                                            }
+                                            Section(header: Text("SUBCATEGORIES")) {
+                                                Picker("", selection: $selectedCategory) {
+                                                    ForEach (categories){ subcategory in
+                                                        if((category.color == subcategory.color)&&(category.name != subcategory.name)){
+                                                            
+                                                            HStack{
+                                                                Image(systemName: subcategory.symbol)
+                                                                    .foregroundColor(.white)
+                                                                    .frame(width: 40.0, height: 40.0)
+                                                                    .background(Color.getMyColor(subcategory.color))
+                                                                    .cornerRadius(20)
+                                                                Text("\(subcategory.name)")
+                                                                
+                                                            }.tag(subcategory as Category?)
+                                                        }
+                                                    }
+                                                    Text("None")
+                                                        .tag(nil as Category?)
+                                                }.labelsHidden()
+                                                    .pickerStyle(.inline)
+                                                //                                                .onTapGesture(perform: dismiss)
                                             }
                                         }
-                                        Section(header: Text("SUBCATEGORIES")) {
-                                            Picker("", selection: $selectedCategory) {
-                                                ForEach (categories){ subcategory in
-                                                    if((category.color == subcategory.color)&&(category.name != subcategory.name)){
-                                                        
-                                                        HStack{
-                                                            Image(systemName: subcategory.symbol)
-                                                                .foregroundColor(.white)
-                                                                .frame(width: 40.0, height: 40.0)
-                                                                .background(Color.getMyColor(subcategory.color))
-                                                                .cornerRadius(20)
-                                                            Text("\(subcategory.name)")
-                                                            
-                                                        }.tag(subcategory as Category?)
-                                                    }
-                                                }
-                                                Text("None")
-                                                    .tag(nil as Category?)
-                                            }.labelsHidden()
-                                                .pickerStyle(.inline)
-//                                                .onTapGesture(perform: dismiss)
-                                        }
                                     }
-                                }
-                            },
-                            label:{
-                                HStack{
-                                    
-                                    Image(systemName: category.symbol)
-                                        .foregroundColor(.white)
-                                        .frame(width: 40.0, height: 40.0)
-                                        .background(Color.getMyColor(category.color))
-                                        .cornerRadius(20)
-                                    Text("\(category.name)")
-                                }
-                            })
+                                },
+                                label:{
+                                    HStack{
+                                        
+                                        Image(systemName: category.symbol)
+                                            .foregroundColor(.white)
+                                            .frame(width: 40.0, height: 40.0)
+                                            .background(Color.getMyColor(category.color))
+                                            .cornerRadius(20)
+                                        Text("\(category.name)")
+                                    }
+                                })
+                        }
+                        
                     }
-                    
                 }
             }
-        }
-        
+            
+        }.navigationTitle("Categories")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItemGroup {
+                    
+                    Button(
+                        action: { isPresented2.toggle()
+                        },
+                        label: {
+                            Image(systemName: "plus.circle.fill")
+                        })
+                    .sheet(isPresented: $isPresented) {
+                        Add()
+                    }
+                }
+            }
     }
 }
 
-#Preview {
-    SelectedCategory(selectedCategory: .constant(Category(name: "", symbol: "", color: "", principalCategory: true)))
-}
+//#Preview {
+//    SelectedCategory(selectedCategory: .constant(Category(name: "", symbol: "", color: "", principalCategory: true)))
+//}
