@@ -12,6 +12,7 @@ import SwiftData
 
 struct addExpense: View {
 //    @Binding var obsVar: ObsVar
+    @Environment(\.colorScheme) var colorScheme
     
     @State private var selectedSegment = 0
     @State private var isPresented = false
@@ -30,6 +31,8 @@ struct addExpense: View {
     @State var selectedCategory: Category?
     @State var selectedDate = Date()
     
+    @State private var amountText: String = "-0"
+    @State private var isEditing = false
     
     var item: Item = Item(tipeRecord: "", amount: 2, date: .now, note: "", warranty: 0)
    
@@ -39,28 +42,56 @@ struct addExpense: View {
         VStack{
             ZStack{
                 Rectangle()
-                    .foregroundColor(.red)
+                    .foregroundColor(colorScheme == .dark ? Color(red: 29/255, green:29/255, blue: 29/255) : .red)
+                    .frame(height: 100)
                 
                 HStack{
                     Button(
-                        action: {
-                            
-                        },
+                        action: {                        },
                         label:{
-                            
-                            Text("MXN")
-                        })
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                                    .frame(width: 60, height: 30)
+                                
+                                Text("MXN")
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                            }
+                        }).padding()
                     Spacer()
-                    Text("-5000")
-                        .font(.largeTitle)
-                        .bold()
-                        .foregroundColor(.white)
+//                    HStack{
+//                        Text("-")
+//                            .font(.largeTitle)
+//                            .bold()
+//                            .foregroundColor(colorScheme == .dark ? .black : .white)
+                    TextField("-0", text: Binding<String>(
+                        get: {
+                            return self.amountText
+                        },
+                        set: {
+                            // Ensure that the text always starts with a hyphen
+                            if $0.starts(with: "-") {
+                                self.amountText = $0
+                            } else {
+                                self.amountText = "-\($0)"
+                            }
+                        }
+                    ))
+                    .keyboardType(.numberPad)
+                    .font(.largeTitle)
+                    .bold()
+                    .foregroundColor(colorScheme == .dark ? .black : .white)
+                    .multilineTextAlignment(.trailing)
+                    .frame(width: 200)
+                    .padding()
+                    
+//                    }.padding()
+                        
                 }
-                .padding(.horizontal)
             }
-            .frame(height: 100)
-            .ignoresSafeArea(.all,edges: .all)
-            
+            .onTapGesture {
+                hideKeyboard()
+            }
 
             List() {
                 Section(header: Text("GENERAL")) {
@@ -231,14 +262,23 @@ struct addExpense: View {
                 .bold()
                 .foregroundColor(.white)
                 
-            }.background(.white)
+            }.background(colorScheme == .dark ? .black : .white)
         }
-    }
+//        .onTapGesture {
+//           hideKeyboard()
+//       }
+   }
+   private func hideKeyboard() {
+          UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+          isEditing = false
+      }
+    
 }
 private extension  addExpense {
     
     func save() {
         item.date = selectedDate
+        item.amount = Double(amountText)!
         modelContext.insert(item)
         item.category = selectedCategory
         selectedCategory?.items?.append(item)

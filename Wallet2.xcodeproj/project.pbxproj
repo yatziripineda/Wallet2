@@ -33,6 +33,7 @@
 		78C61F6C2B0B591B00707CB9 /* SelectedCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */; };
 		78C61F6E2B0C9FC800707CB9 /* ViewSelectAcount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */; };
 		78C61F702B0CA68C00707CB9 /* ObsVar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C61F6F2B0CA68C00707CB9 /* ObsVar.swift */; };
+		78DB7BCB2B0E65940039A008 /* ViewSelectedCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DB7BCA2B0E65940039A008 /* ViewSelectedCurrency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCategory.swift; sourceTree = "<group>"; };
 		78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSelectAcount.swift; sourceTree = "<group>"; };
 		78C61F6F2B0CA68C00707CB9 /* ObsVar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObsVar.swift; sourceTree = "<group>"; };
+		78DB7BCA2B0E65940039A008 /* ViewSelectedCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSelectedCurrency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				78C61F6B2B0B591B00707CB9 /* SelectedCategory.swift */,
 				78C61F6D2B0C9FC800707CB9 /* ViewSelectAcount.swift */,
 				78BFA3662B0DF1AD00826786 /* ViewSelectedDate.swift */,
+				78DB7BCA2B0E65940039A008 /* ViewSelectedCurrency.swift */,
 			);
 			path = add;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				78C61F702B0CA68C00707CB9 /* ObsVar.swift in Sources */,
 				78B21B282B053D540084233B /* Planning.swift in Sources */,
 				78B21B1F2B053B120084233B /* Currency.swift in Sources */,
+				78DB7BCB2B0E65940039A008 /* ViewSelectedCurrency.swift in Sources */,
 				78B21B1D2B053AB40084233B /* Item.swift in Sources */,
 				78B21B262B053CF50084233B /* ControlPanel.swift in Sources */,
 				78B21B212B053B3E0084233B /* Acount.swift in Sources */,

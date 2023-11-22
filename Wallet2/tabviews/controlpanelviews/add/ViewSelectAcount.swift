@@ -24,8 +24,7 @@ struct ViewSelectAcount: View {
                     .cornerRadius(5)
                 Text("Acount")
             }
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel("Account")
+            
             
             
             Spacer()
@@ -41,6 +40,9 @@ struct ViewSelectAcount: View {
                     .pickerStyle(.inline)
             }
         }.padding()
+            .accessibilityElement(children: .combine)
+            .accessibility(label: Text("Account"))
+            .accessibility(hint: Text("Double tap to select an acount"))
     }
 }
 

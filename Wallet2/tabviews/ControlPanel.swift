@@ -15,6 +15,7 @@ struct ControlPanel: View {
     @State private var searchQuery = ""
     
     @Environment(\.modelContext) private var modelContext
+    
     @Query private var items: [Item]
     @Query private var categories: [Category]
     @Query private var acounts: [Acount]
@@ -34,7 +35,7 @@ struct ControlPanel: View {
                     ZStack{
                         Rectangle()
                             .ignoresSafeArea()
-                            .foregroundColor( colorScheme == .dark ? .black : /*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
+                            .foregroundColor(colorScheme == .dark ? Color(red: 21/255, green:121/255, blue: 81/255) : /*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
                         //
                         ScrollView(.horizontal){
                             HStack{
@@ -94,7 +95,7 @@ struct ControlPanel: View {
                                     Image(systemName: "ellipsis")
                                 }
                                 
-                                ForEach(items){ item in
+                                ForEach(items.sorted(by: { $0.date > $1.date }).prefix(10)) { item in
                                     HStack{
                                         if let category = item.category {
                                             //if let acount = item.acount {
@@ -155,7 +156,8 @@ struct ControlPanel: View {
                 }
             }
             .navigationTitle(" ")
-            .background(/*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
+//            21 121 81
+            .background(colorScheme == .dark ? Color(red: 21/255, green:121/255, blue: 81/255) : /*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
             .toolbar{
                 ToolbarItemGroup {
                     

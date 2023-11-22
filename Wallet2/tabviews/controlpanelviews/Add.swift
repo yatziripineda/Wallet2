@@ -45,6 +45,7 @@ struct Add: View {
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) var modelContext
+    @Environment(\.colorScheme) var colorScheme
     
     @Query private var acounts: [Acount]
     @Query private var categories: [Category]
@@ -67,29 +68,12 @@ struct Add: View {
                     }
                     .padding()
                     .pickerStyle(SegmentedPickerStyle())
-//                    HStack{
-//                        Button(
-//                            action: {
-//                                
-//                            },
-//                            label:{
-//                                
-//                                    Text("MXN")
-//                            })
-//                        Spacer()
-//                        Text("-5000")
-//                            .font(.largeTitle)
-//                            .bold()
-//                            .foregroundColor(.white)
-//                    }
-//                    .padding(
-                    
                     
                     if(selectedSegment == 0){
                         ZStack{
                             
                             addExpense()
-                        }.background(Color.white)
+                        }.background(colorScheme == .dark ? .black : .white)
                         
                     }else{
                         if(selectedSegment == 1){
@@ -101,7 +85,7 @@ struct Add: View {
                 }
                 .navigationTitle("Add record")
                     .navigationBarTitleDisplayMode(.inline)
-                    .background(Color.red)
+                    .background(colorScheme == .dark ? Color(red: 29/255, green:29/255, blue: 29/255) : .red)
     
                 
               
