@@ -15,13 +15,19 @@ struct ViewSelectAcount: View {
     
     var body: some View {
         HStack{
-            Image(systemName: "banknote")
-                .font(.title2)
-                .foregroundColor(.white)
-                .frame(width: 50.0, height: 50.0)
-                .background(.red)
-                .cornerRadius(5)
-            Text("Acount")
+            Group{
+                Image(systemName: "banknote")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .frame(width: 50.0, height: 50.0)
+                    .background(.red)
+                    .cornerRadius(5)
+                Text("Acount")
+            }
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel("Account")
+            
+            
             Spacer()
             Picker("", selection: $selectedAcount) {
                 ForEach (acounts){ acount in

@@ -22,7 +22,7 @@ final class Item :Codable {
     @Relationship(deleteRule: .nullify, inverse: \Category.items)
     var category: Category?
     
-    var date: String
+    var date: Date
     //var lables: String   //relation
     var note: String
 //    var payee: String   //relation
@@ -48,7 +48,7 @@ final class Item :Codable {
     
     init(tipeRecord: String, amount: Double, acount: Acount? = nil,
          category: Category? = nil,
-         date: String, note: String, warranty: Int
+         date: Date, note: String, warranty: Int
 //         image: Data? = nil
     ) {
         self.tipeRecord = tipeRecord
@@ -65,7 +65,7 @@ final class Item :Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.tipeRecord = try container.decode(String.self, forKey: .tipeRecord)
         self.amount = try container.decode(Double.self, forKey: .amount)
-        self.date = try container.decode(String.self, forKey: .date)
+        self.date = try container.decode(Date.self, forKey: .date)
         self.note = try container.decode(String.self, forKey: .note)
         self.warranty = try container.decode(Int.self, forKey: .warranty)
 //        self.acount = try container.decodeIfPresent(Acount.self, forKey: .acount)

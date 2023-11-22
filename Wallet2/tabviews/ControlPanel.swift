@@ -19,26 +19,13 @@ struct ControlPanel: View {
     @Query private var categories: [Category]
     @Query private var acounts: [Acount]
     
-//    var filteredItems: [Item] {
-//        
-//        if searchQuery.isEmpty {
-//            return items.sort(on: selectedSortOption)
-//        }
-//        
-//        let filteredItems = items.compactMap { item in
-//            
-//            let titleContainsQuery = item.title.range(of: searchQuery,
-//                                                      options: .caseInsensitive) != nil
-//            
-//            let categoryTitleContainsQuery = item.category?.title.range(of: searchQuery,
-//                                                                        options: .caseInsensitive) != nil
-//            
-//            return (titleContainsQuery || categoryTitleContainsQuery) ? item : nil
-//        }
-//        
-//        return filteredItems.sort(on: selectedSortOption)
-//        
-//    }
+    @Environment(\.colorScheme) var colorScheme
+    
+    var dateFormatter: DateFormatter {
+           let formatter = DateFormatter()
+           formatter.dateFormat = "dd MMM yyyy"
+           return formatter
+       }
     
     var body: some View {
         NavigationStack{
@@ -47,7 +34,7 @@ struct ControlPanel: View {
                     ZStack{
                         Rectangle()
                             .ignoresSafeArea()
-                            .foregroundColor(/*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
+                            .foregroundColor( colorScheme == .dark ? .black : /*@START_MENU_TOKEN@*/Color(red: 0.151, green: 0.848, blue: 0.534)/*@END_MENU_TOKEN@*/)
                         //
                         ScrollView(.horizontal){
                             HStack{
@@ -55,7 +42,7 @@ struct ControlPanel: View {
                                     ZStack(alignment: .leading){
                                         Rectangle()
                                             .frame(width: 160, height: 170)
-                                            .foregroundColor(.white)
+                                            .foregroundColor(colorScheme == .dark ? .black : .white)
                                             .cornerRadius(20)
                                             .shadow(radius: 5)
                                             .padding()
@@ -66,6 +53,7 @@ struct ControlPanel: View {
                                                 .frame(width: 40.0, height: 40.0)
                                                 .background(.red)
                                                 .cornerRadius(5)
+                                                .accessibilityHidden(true)
                                             
                                             Text(acount.name)
                                                 .bold()
@@ -117,14 +105,11 @@ struct ControlPanel: View {
                                                     .cornerRadius(20)
                                                 VStack(alignment: .leading){
                                                     Text(category.name)
-                                                    Spacer()
-                                                    ////___________________________________________________________________________Error no se leeeeeee
                                                     if let acount = item.acount{
                                                         Text(acount.name)
                                                             .font(.caption)
                                                             .foregroundColor(.gray)
                                                     }
-                                                    //_________________________________________________________________________________
                                                     
                                                 }.padding()
                                                 Spacer()
@@ -132,6 +117,9 @@ struct ControlPanel: View {
                                                     Text("\(item.amount, format: .number)$")
                                                         .font(.headline)
                                                         .foregroundColor(.red)
+                                                    Text(dateFormatter.string(from: item.date))
+                                                        .font(.footnote)
+                                                        .foregroundColor(.gray)
                                                 }
                                             //}
                                         }
@@ -174,17 +162,17 @@ struct ControlPanel: View {
                     NavigationLink(destination: bell(),
                                    label:{
                         Image(systemName: "bell.fill")
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .dark ? .black : .white)
                     })
                     NavigationLink(destination: Configuration(), label: {
                         Image(systemName: "gearshape.fill")
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .dark ? .black : .white)
                     })
                     Button(
                         action: { isPresented.toggle() },
                         label: {
                             Image(systemName: "plus.circle.fill")
-                                .foregroundColor(.white)
+                                .foregroundColor(colorScheme == .dark ? .black : .white)
                                  })
                     .sheet(isPresented: $isPresented) {
                         Add()
